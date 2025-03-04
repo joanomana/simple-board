@@ -13,7 +13,7 @@ export default function Login() {
         e.preventDefault(); 
 
         if (!email || !password) {
-            Swal.fire("Error", "Por favor, completa todos los campos", "error");
+            Swal.fire("Error", "Enter your credentials", "error");
             return;
         }
 
