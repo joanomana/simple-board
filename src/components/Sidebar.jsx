@@ -81,7 +81,7 @@ export default function Sidebar({ setSelectedPage, selectedPage, isSidebarOpen }
                     <Link 
                     onClick={() => setSelectedPage("logout")}
                     href="/" 
-                    className="flex justify-center items-center mt-5">
+                    className="flex justify-center items-center mt-20 mb-15">
                         <img src="/img/logout.svg" alt="logout" />
                     </Link>
                 </div>
