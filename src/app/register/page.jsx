@@ -29,7 +29,7 @@ export default function Register() {
             Swal.fire("Error", data.error, "error"); 
         } else{ Swal.fire({
             title: "¡Successful !",
-            text: "Now click on the button to go back to the login page",
+            text: "Returning to login",
             icon: "success",
             timer: 5000,
             showConfirmButton: false,
