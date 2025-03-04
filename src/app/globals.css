@@ -1,2 +1,6 @@
 @import "tailwindcss";
 
+/* Para navegadores Webkit (Chrome, Safari, Edge) */
+.custom-scrollbar::-webkit-scrollbar {
+    display: none; /* Ocultar el scrollbar */
+  }
