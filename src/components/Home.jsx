@@ -20,12 +20,12 @@ export default function Home (){
                     <h1 className="text-2xl font-bold">13</h1>
                 </div>
             </div>
-            <div className="flex  w-full justify-between bg-[#FEFBEC] p-3 rounded-lg shadow-md">
+            <div className="flex flex-col  w-full h-45 bg-[#FEFBEC] p-3 rounded-lg shadow-md">
                 <div className="flex flex-col justify-start items-start gap-2">
                     <img src="/img/payment.svg" alt="graduation" className="h-10"/>
                     <h1 className="text-[#6C6C6C]">Payments</h1>
                 </div>
-                <div className="pt-30 flex gap-2 items-end font-bold">
+                <div className=" flex gap-2 font-bold justify-end items-end pt-13">
                     <p>INR</p>
                     <h1 className="text-2xl">556,000</h1>
                 </div>
