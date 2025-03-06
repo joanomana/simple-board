@@ -95,15 +95,26 @@ export default function Student() {
         });
     };
 
-    const deleteStudent = async (id) => {
+    const alertdeleteStudent = async (id) => {
         Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",
             icon: "warning",
             showCancelButton: true,
-            confirmButtonColor: "#3085d6",
+            confirmButtonColor: "#3085d6", 
             cancelButtonColor: "#d33",
+            preConfirm: () => deleteStudent(id),
         });
+    const deleteStudent = async (id) => {
+        await fetch(`${API_URL}/${id}`, { method: 'DELETE' });
+        fetchStudent();
+        Swal.fire({
+            title: "Deleted!",
+            icon: "success",
+            timer: 1000,
+            showConfirmButton: false,
+        });
+    };
         
         
     };
@@ -175,7 +186,7 @@ export default function Student() {
                                         </button>
                                         <button
                                             className="text-orange-400 hover:cursor-pointer"
-                                            onClick={() => deleteStudent(std.id)}
+                                            onClick={() => alertdeleteStudent(std.id)}
                                         >
                                             <FiTrash className="text-2xl" />
                                         </button>
@@ -235,7 +246,7 @@ export default function Student() {
                         </div>
                         <div className="mt-2 flex justify-end gap-2">
                             <button className="bg-green-500 text-white px-4 py-2 rounded" onClick={editStudent}>Save</button>
-                            <button className="bg-red-500 text-white px-4 py-2 rounded" onClick={() => setShowFormEdit(false)}>Cancelr</button>
+                            <button className="bg-red-500 text-white px-4 py-2 rounded" onClick={() => setShowFormEdit(false)}>Cancel</button>
                         </div>
                     </div>
                 </div>
