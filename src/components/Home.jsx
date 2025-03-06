@@ -1,8 +1,8 @@
 
 export default function Home (){
     return(
-        <div className="grid grid-cols-4 justify-center items-center w-full gap-5 2xl:gap-30 ">
-            <div className="flex  justify-between w-full bg-[#F0F9FF] p-3 rounded-lg shadow-md">
+        <div className="grid grid-cols-4 justify-center w-full gap-5 2xl:gap-30 py-3 px-5   ">
+            <div className="flex  justify-between w-full h-45 bg-[#F0F9FF] p-3 rounded-lg shadow-md">
                 <div className="flex flex-col justify-start items-start gap-2">
                     <img src="/img/graduation-blue.svg" alt="graduation" className="h-10 "/>
                     <h1 className="text-[#6C6C6C]">Students</h1>
@@ -11,7 +11,7 @@ export default function Home (){
                     <h1 className="text-2xl font-bold">243</h1>
                 </div>
             </div>
-            <div className="flex justify-between w-full bg-[#FEF6FB] p-3 rounded-lg shadow-md">
+            <div className="flex justify-between w-full h-45 bg-[#FEF6FB] p-3 rounded-lg shadow-md">
                 <div className="flex flex-col justify-start items-start gap-2">
                     <img src="/img/bookmark.svg" alt="graduation" className="h-10"/>
                     <h1 className="text-[#6C6C6C]">Course</h1>
@@ -31,7 +31,7 @@ export default function Home (){
                 </div>
 
             </div>
-            <div className="flex w-full justify-between bg-linear-to-r from-[#FEAF00] to-[#F8D442] p-3 rounded-lg shadow-md">
+            <div className="flex w-full justify-between h-45 bg-linear-to-r from-[#FEAF00] to-[#F8D442] p-3 rounded-lg shadow-md">
                 <div className="flex flex-col justify-start items-start gap-2">
                     <img src="/img/person.svg" alt="graduation" className="h-10"/>
                     <h1 className="text-white">Users</h1>
