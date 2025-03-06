@@ -1,4 +1,5 @@
 'use client'
+import Swal from "sweetalert2";
 import { FaCaretDown } from "react-icons/fa6";
 import { FiTrash } from "react-icons/fi";
 import { LuPencil } from "react-icons/lu";
@@ -15,7 +16,8 @@ export default function Student() {
     const [currentPage, setCurrentPage] = useState(1);
     const [studentsPerPage  , setStudentsPerPage] = useState(5);
 
-    
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const nameRegex = /^[a-zA-Z\s]+$/;
 
     useEffect(() => {
         fetchStudent();
@@ -37,7 +39,18 @@ export default function Student() {
         setStudents(data);
     };
 
-    const addStudent = async () => {
+    const addStudent = async () => { //agrega estudiante y valida email y nombre
+        if (!emailRegex.test(newStudent.email)) {
+            alert("Please, enter a valid email.");
+            return;
+        }
+
+        
+        if (!nameRegex.test(newStudent.name)) {
+            alert("Name cannot contain numbers or special characters.");
+            return;
+        }
+
         await fetch(API_URL, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -46,10 +59,26 @@ export default function Student() {
         setNewStudent({ name: "", email: "", phone: "", enroll: "", date: "" });
         setShowFormAdd(false);
         fetchStudent();
+        Swal.fire({
+            title: "Added!",
+            icon: "success",
+            timer: 1000,
+            showConfirmButton: false,
+        });
     };
 
-    const editStudent = async () => {
+    const editStudent = async () => { //edita estudiante y valida email y nombre
         if (!edit) return;
+        if (!emailRegex.test(edit.email)) {
+            alert("Please, enter a valid email.");
+            return;
+        }
+
+        // Validar el nombre
+        if (!nameRegex.test(edit.name)) {
+            alert("Name cannot contain numbers or special characters.");
+            return;
+        }
         await fetch(`${API_URL}/${edit.id}`, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
@@ -58,11 +87,18 @@ export default function Student() {
         setEdit(null);
         setShowFormEdit(false);
         fetchStudent();
+        Swal.fire({
+            title: "Updated!",
+            icon: "success",
+            timer: 1000,
+            showConfirmButton: false,
+        });
     };
 
     const deleteStudent = async (id) => {
         await fetch(`${API_URL}/${id}`, { method: 'DELETE' });
         fetchStudent();
+        Swal.fire({title:"Deleted!", icon:"success", timer:1000, showConfirmButton:false});
     };
     const indexOfLastStudent = currentPage * studentsPerPage;
     const indexOfFirstStudent = indexOfLastStudent - studentsPerPage;
@@ -80,9 +116,9 @@ export default function Student() {
 
 
     return (
-        <div className="w-full bg-[#F8F8F8]  relative">
-            <div className="flex flex-col mx-5 my-5">
-                <div className="flex justify-between items-center">
+        <div className=" bg-[#F8F8F8] w-full relative">
+            <div className="flex flex-col my-5">
+                <div className="flex justify-between items-center px-2">
                     <h1 className="font-bold text-3xl">Students List</h1>
                     <div className="flex gap-5">
                         <span className="" > Page {currentPage} of {totalPages}</span>
@@ -168,8 +204,8 @@ export default function Student() {
                             <input className="border p-2 m-1 w-full" type="date" value={newStudent.date} onChange={(e) => setNewStudent({ ...newStudent, date: e.target.value })} />
                         </div>
                         <div className="mt-2 flex justify-end gap-2">
-                            <button className="bg-green-500 text-white px-4 py-2 rounded" onClick={addStudent}>Guardar</button>
-                            <button className="bg-red-500 text-white px-4 py-2 rounded" onClick={() => setShowFormAdd(false)}>Cancelar</button>
+                            <button className="bg-green-500 text-white px-4 py-2 rounded" onClick={addStudent}>Save</button>
+                            <button className="bg-red-500 text-white px-4 py-2 rounded" onClick={() => setShowFormAdd(false)}>Cancel</button>
                         </div>
                     </div>
                 </div>
@@ -191,8 +227,8 @@ export default function Student() {
                             <input className="border p-2 m-1 w-full" type="date" value={edit?.date} onChange={(e) => setEdit({ ...edit, date: e.target.value })} />
                         </div>
                         <div className="mt-2 flex justify-end gap-2">
-                            <button className="bg-green-500 text-white px-4 py-2 rounded" onClick={editStudent}>Guardar</button>
-                            <button className="bg-red-500 text-white px-4 py-2 rounded" onClick={() => setShowFormEdit(false)}>Cancelar</button>
+                            <button className="bg-green-500 text-white px-4 py-2 rounded" onClick={editStudent}>Save</button>
+                            <button className="bg-red-500 text-white px-4 py-2 rounded" onClick={() => setShowFormEdit(false)}>Cancelr</button>
                         </div>
                     </div>
                 </div>
