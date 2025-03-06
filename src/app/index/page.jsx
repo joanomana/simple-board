@@ -18,9 +18,9 @@ export default function Index() {
 
 
     return (
-        <div className="flex gap-3 ">
+        <div className="flex">
             <Sidebar setSelectedPage={setSelectedPage} selectedPage={selectedPage} isSidebarOpen={isSidebarOpen} />
-            <div className="flex flex-col gap-3 sm:w-5/8 md:w-full xl:w-full">
+            <div className="flex flex-col  sm:w-5/8 md:w-full xl:w-full">
                 <Header toggleSidebar={toggleSidebar}/>
                 <div className="flex h-full">
                     {selectedPage === "home" && <Home/>}
