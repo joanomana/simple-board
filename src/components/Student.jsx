@@ -96,9 +96,16 @@ export default function Student() {
     };
 
     const deleteStudent = async (id) => {
-        await fetch(`${API_URL}/${id}`, { method: 'DELETE' });
-        fetchStudent();
-        Swal.fire({title:"Deleted!", icon:"success", timer:1000, showConfirmButton:false});
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+        });
+        
+        
     };
     const indexOfLastStudent = currentPage * studentsPerPage;
     const indexOfFirstStudent = indexOfLastStudent - studentsPerPage;
