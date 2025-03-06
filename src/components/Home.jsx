@@ -1,5 +1,24 @@
+"use client";
+import { useEffect, useState } from "react";
+
+const API_URL1 = 'https://67c8e6cb0acf98d07088030b.mockapi.io/api/v1/students/students';
+
 
 export default function Home (){
+    const [students,setStudents] = useState([]);
+
+    const fetchStudent = async () => {
+        const response = await fetch(API_URL1);
+        const data = await response.json();
+        setStudents(data);
+    };
+    
+    useEffect(() => {
+        fetchStudent();
+    }
+    ,[]);
+
+
     return(
         <div className="grid grid-cols-4 justify-center w-full gap-5 2xl:gap-30 py-3 px-5   ">
             <div className="flex  justify-between w-full h-45 bg-[#F0F9FF] p-3 rounded-lg shadow-md">
@@ -8,7 +27,7 @@ export default function Home (){
                     <h1 className="text-[#6C6C6C]">Students</h1>
                 </div>
                 <div className="pt-30">
-                    <h1 className="text-2xl font-bold">243</h1>
+                    <h1 className="text-2xl font-bold">{students.length}</h1>
                 </div>
             </div>
             <div className="flex justify-between w-full h-45 bg-[#FEF6FB] p-3 rounded-lg shadow-md">
