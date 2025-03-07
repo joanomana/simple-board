@@ -1,11 +1,33 @@
 "use client";
-import React from "react";
+import {React,useState,useEffect} from "react";
 import { useRouter } from "next/navigation";
 import { TiHomeOutline } from "react-icons/ti";
 import { FaRegBookmark } from "react-icons/fa";
+import jwt from "jsonwebtoken";
+
 // sm:w-6/8 md:w-full xl:w-full
 export default function Sidebar({ setSelectedPage, selectedPage, isSidebarOpen }) {
+    const [username,setUsername]=useState(null);
     const router = useRouter();
+
+    useEffect(() =>{
+        const token =localStorage.getItem("token");
+    if (token){
+        const decoded = jwt.decode(token);
+        if (decoded && decoded.username){
+            setUsername(decoded.username)
+        }
+        
+
+    }else{
+        console.log("No token");
+    }
+
+    })
+    
+
+    
+
     const handleLogout = () => {
         localStorage.removeItem("token"); // 🔹 Eliminar el token de autenticación
         router.push("/"); // 🔹 Redirigir al login
@@ -20,7 +42,7 @@ export default function Sidebar({ setSelectedPage, selectedPage, isSidebarOpen }
                     </div>                    
                     <div className="mt-20 flex flex-col items-center">
                         <img src="/img/photo.svg" alt="profile foto" className="rounded-full" />
-                        <h1 className="[var(--font-montserrat)] font-bold">Karthi Madesh</h1>
+                        <h1 className="[var(--font-montserrat)] font-bold">{username}</h1>
                         <p className="text-[#FEAF00]">Admin</p>
                     </div>
                     <div className="flex flex-col mt-10 gap-5">
