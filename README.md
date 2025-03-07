@@ -1,36 +1,40 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 📌 Panel de Administración & Gestión de Estudiantes
 
-## Getting Started
+Bienvenido al sistema de gestión de estudiantes, una plataforma diseñada para facilitar la administración de usuarios, cursos y pagos dentro de una institución educativa. A través de una interfaz intuitiva, podrás acceder a información clave y realizar acciones esenciales de manera eficiente.
 
-First, run the development server:
+🔗 **Accede a la plataforma aquí:** [CRUD OPERATIONS](https://simple-board-k94gh2awg-joans-projects-0031b6da.vercel.app/)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🎯 ¿Qué puedes hacer en la plataforma?
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### 🔑 Inicio de Sesión:
+Para acceder a la plataforma, ingresa tu correo y contraseña en el formulario de inicio de sesión. Si introduces credenciales incorrectas, recibirás un mensaje de error. En caso de olvidar la contraseña, puedes restablecerla mediante la opción disponible.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 📊 Panel de Control:
+Una vez dentro, tendrás acceso a un resumen con información relevante, como el número total de estudiantes, cursos, pagos e ingresos registrados en el sistema. Los datos se actualizan en tiempo real para que siempre tengas una visión clara de la plataforma.
 
-## Learn More
+### 🎓 Gestión de Estudiantes:
+Desde la sección de estudiantes, puedes visualizar una lista detallada con información clave como nombre, correo, teléfono, número de matrícula y fecha de admisión. Además, cuentas con opciones para:
+- **Agregar nuevos estudiantes** mediante un formulario emergente.
+- **Editar datos** sin necesidad de recargar la página.
+- **Eliminar registros**, con una confirmación previa para evitar errores.
 
-To learn more about Next.js, take a look at the following resources:
+### 📌 Navegación Intuitiva:
+El sistema incluye una barra lateral que permite moverte fácilmente entre las diferentes secciones, como Home, Courses, Students, Payments y Reportes. También puedes acceder a la configuración de tu perfil o cerrar sesión de manera segura.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 🔔 Notificaciones y Búsqueda:
+La barra superior incluye una función de búsqueda para localizar rápidamente información dentro del sistema, así como un botón de notificaciones que muestra alertas relevantes.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 🔒 Seguridad y Cierre de Sesión:
+Para garantizar la seguridad de tu cuenta, puedes cerrar sesión en cualquier momento desde el menú lateral. Antes de salir, se solicitará una confirmación para evitar cierres accidentales.
 
-## Deploy on Vercel
+## 🛰️ Desarollo:
+Para este proyecto, se utilizó Vercel para desplegar el repositorio, permitiendo que la aplicación esté accesible en línea sin necesidad de configurar servidores manualmente.
+Al conectar el repositorio con Vercel, los cambios realizados en el código se despliegan automáticamente con cada actualización en la rama principal, asegurando que la versión en producción siempre esté actualizada.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+🚀 ¡Explora la plataforma y gestiona estudiantes de forma eficiente con una experiencia fluida y optimizada! Si tienes alguna duda o sugerencia, contáctanos. 💡
+
+
