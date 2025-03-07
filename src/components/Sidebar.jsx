@@ -1,10 +1,15 @@
 "use client";
 import React from "react";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { TiHomeOutline } from "react-icons/ti";
 import { FaRegBookmark } from "react-icons/fa";
 // sm:w-6/8 md:w-full xl:w-full
 export default function Sidebar({ setSelectedPage, selectedPage, isSidebarOpen }) {
+    const router = useRouter();
+    const handleLogout = () => {
+        localStorage.removeItem("token"); // 🔹 Eliminar el token de autenticación
+        router.push("/"); // 🔹 Redirigir al login
+    };
     return (
         <div className={` bg-[#F2EAE1] p-2 left-0 transition-all duration-300 h-dvh overflow-y-scroll ${isSidebarOpen ? 'w-80' : 'w-30'} custom-scrollbar `}>
             {isSidebarOpen ? (
@@ -44,13 +49,12 @@ export default function Sidebar({ setSelectedPage, selectedPage, isSidebarOpen }
                             <h1>Settings</h1>
                         </button>
                     </div>
-                    <Link 
-                    onClick={() => setSelectedPage("logout")}
-                    href="/" 
-                    className="flex mt-30 justify-center items-center gap-5 mb-5">
+                    <a 
+                    onClick={handleLogout}
+                    className="flex mt-30 justify-center items-center gap-5 mb-5 hover:cursor-pointer">
                         <p className="rounded-lg">Log Out</p>
                         <img src="/img/logout.svg" alt="logout" />
-                    </Link>
+                    </a>
                 </div>
             ):(
                 <div className="flex flex-col items-center mt-2 w-20 justify-between ">
@@ -78,12 +82,11 @@ export default function Sidebar({ setSelectedPage, selectedPage, isSidebarOpen }
                             <img src="/img/settings.svg" alt="settings" className="w-5 h-5" />
                         </button>
                     </div>
-                    <Link 
-                    onClick={() => setSelectedPage("logout")}
-                    href="/" 
-                    className="flex justify-center items-center mt-20 mb-15">
+                    <a 
+                    onClick={handleLogout}
+                    className="flex justify-center items-center mt-20 mb-15 hover:cursor-pointer">
                         <img src="/img/logout.svg" alt="logout" />
-                    </Link>
+                    </a>
                 </div>
             )}
         </div>

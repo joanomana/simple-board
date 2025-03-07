@@ -1,3 +1,4 @@
+'use client';
 import { IoArrowBackCircleOutline } from "react-icons/io5";
 import { IoIosSearch } from "react-icons/io";
 import { IoIosNotificationsOutline } from "react-icons/io";
