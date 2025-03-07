@@ -24,6 +24,7 @@ export default function Login() {
         });
 
         const data = await res.json();
+        localStorage.setItem("token", data.token);
 
         if (data.error) {
             Swal.fire("Error", data.error, "error");
@@ -37,7 +38,7 @@ export default function Login() {
             });
 
             setTimeout(() => {
-                router.push("/index");
+                router.push("/home");
             }, 2000);
         }
     };
